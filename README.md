@@ -1,7 +1,7 @@
 # Wumbology
 WUMBO Algorithm (Weighted UID-filtered anoMaly-Based Outlier detection)
 
-Unsupervised Learning algorithm designed to identify outliers in datasets, created for use in Cybersecurity, Insider Threat, and Fraud use cases often involves filtering UID's so that users don't automatically make clusters through their own behavior. The algorithm iteratively evaluates a dataset by identifying local inverse log probability (from a kernel density function) and average distance to k-Nearest Neighbors - and then combining those metrics into a feature that generally represents its "Outlierness."
+Unsupervised Learning algorithm designed to identify outliers in datasets, created for use in Cybersecurity, Insider Threat, and Fraud - use cases that benefit from filtering UID's so that users don't automatically make clusters through their own behavior. The algorithm iteratively evaluates a dataset by identifying local inverse log probability (from a kernel density function) and average distance to k-Nearest Neighbors - and then combining those metrics into a feature that generally represents its "Outlierness." By using these metrics from a local k-Nearest Neighbors sampling, computation time is generally low.
 
 ![Image of Wumbo Algo being used IRL.](https://assets.change.org/photos/0/ui/gi/ssUIGiKyMdDGReV-800x450-noPad.jpg?1530521121)
 
