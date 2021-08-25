@@ -3,7 +3,7 @@ WUMBO Algorithm (Weighted UID-filtered Multi-Metric Based Outlier detection)
 
 ![Image of Wumbo Algo being used IRL.](https://assets.change.org/photos/0/ui/gi/ssUIGiKyMdDGReV-800x450-noPad.jpg?1530521121)
 
-##**Purpose**:
+**Purpose**:
 Unsupervised Learning algorithm designed to identify outliers in datasets, created originally for use in Cybersecurity, Insider Threat, and Fraud. The purpose of the algorithm was to improve upon DBSCAN/OPTICS-style algorithms by implementing the following:
 - **_UID-Filtering_**
 When working with data in User Entity Behavior Analytics, some larger datasets may have multiple rows corresponding to the same User/Entity. In these situations, if specific behavioral measures are the same across user behavior then it becomes possible for user behavior metrics to provide increased density to an arbitrary region. 
@@ -14,6 +14,6 @@ With models such as DBSCAN, metrics such as epsilon and minimum points need to b
 Large networks are going to have many users with small clusters of different arbitrary behaviors. Imagine a network with 25,000 users that delivers financial services to the general public. Multiple clusters of users are going to exist when measuring heuristics of behavior, an Application Development team will use certain softwares and servers differently than a Sales Development team. Even within subgroups of an organization, such as sales, are going to be an arbitrary number of even smaller subgroups. Within Sales, there are Managers, Graphics Designers, people who travel to customer sites, people who work on-site only, etc. Many SIEM products offer enrichment by bucketing users into organizational groups, but this classification can tend to be mis-leading. With WUMBO, a user is compared to it's k-Nearest Neighbors across multiple metrics to determine general local measures of density (local/similar working group) and then measured in the next later as an ensemble against the entire dataset (environment=wide) to identify behaviors without rigid classificaiton requirements.
 
 
-##**Process**:
+**Process**:
 WUMBO first filters out UID (to prevent one user with multiple points from clustering on itself or potentially poisoning some region of the data), then establishes each row's k-Nearest Neighbors (where k is defined by 5>=sqrt(N)<=50). From each row and kNN, multiple optional metrics are used to identify "Outlierness" to include max distance, average distance, and inverse kernel density. These measurements are passed on as features into the next layer where now all data points are measured using kernel density to define each data point's "Risk Score" and "Outlier" is defined as a 1 or 0 dependent on the declared alpha value and the final "Risk Score" for the data point.
 
